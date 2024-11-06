@@ -1,0 +1,367 @@
+@import "./styles/reset.css";
+:root {
+  font-family: Inter, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 15px;
+  color-scheme: light;
+  color: var(--gunmetal);
+  background-color: var(--background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --background: #f2f2f2;
+  --white: #fffdfa;
+  --dark-space-blue: #00001a;
+  --gunmetal: #5e607a;
+  --light-vermillion: #f15d51;
+  --silver: #c5c6ce;
+  --yellow: #e9aa52;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+@define-mixin heading-xl {
+  font-size: 56px;
+  line-height: 56px;
+  font-weight: 800;
+}
+@define-mixin heading-l {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 700;
+}
+@define-mixin heading-m {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 700;
+}
+@define-mixin heading-s {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 800;
+}
+@define-mixin heading-xs {
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: 400;
+}
+@define-mixin body {
+  line-height: 26px;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.app {
+  padding: 18px 16px 80px 16px;
+  &__main {
+    margin-top: 32px;
+  }
+}
+
+.main {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  row-gap: 64px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-container {
+  display: none;
+}
+
+.nav-container:has(.nav_open) {
+  display: block;
+}
+
+.nav {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  left: 100%;
+  bottom: 0;
+  padding: 25% 40% 0% 0%;
+  background-color: var(--background);
+  transition: left 1s ease;
+
+  &_open {
+    left: 30%;
+  }
+}
+
+.backdrop {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: var(--dark-space-blue);
+  opacity: 0.4;
+  transition: right 1s ease;
+  &_open {
+    right: 70%;
+  }
+}
+
+.nav-list {
+  list-style-type: none;
+  padding-left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-transform: capitalize;
+  font-size: 18px;
+  line-height: 24px;
+  &__item {
+    cursor: pointer;
+    padding: 10px;
+    text-decoration: none;
+    color: var(--gunmetal);
+    transition: color 0.3s ease;
+    &:hover {
+      color: var(--light-vermillion);
+    }
+  }
+}
+
+.burger {
+  border: none;
+  width: 40px;
+  height: 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+  cursor: pointer;
+  box-sizing: content-box;
+  &__line {
+    width: 100%;
+    display: block;
+    content: "";
+    height: 3px;
+    background-color: var(--dark-space-blue);
+    opacity: 1;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+    &_first_open {
+      transform: rotate(45deg) translate(6px, 4px);
+    }
+    &_none {
+      opacity: 0;
+    }
+    &_second_closed {
+      transform: rotate(-45deg) translate(0px, 0px);
+    }
+  }
+}
+
+.hero {
+  &__img {
+    width: 100%;
+  }
+  &__title {
+    margin-top: 24px;
+    color: var(--dark-space-blue);
+    @mixin heading-l;
+  }
+  &__paragraph {
+    color: var(--gunmetal);
+    margin-top: 16px;
+    @mixin body;
+  }
+  &__read-more {
+    margin-top: 24px;
+  }
+}
+
+.read-more {
+  color: var(--dark-space-blue);
+  background-color: var(--light-vermillion);
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 4.38px;
+  padding: 13px 32.5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  &:hover {
+    background-color: var(--dark-space-blue);
+    color: var(--white);
+  }
+}
+
+.new {
+  background-color: var(--dark-space-blue);
+  padding: 24px 20px;
+  &__title {
+    @mixin heading-m;
+    color: var(--yellow);
+    text-transform: capitalize;
+    margin-bottom: 35px;
+  }
+}
+
+.new-article {
+  &__title {
+    @mixin heading-s;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  &__paragraph {
+    @mixin body;
+    color: var(--silver);
+    margin-bottom: 29px;
+  }
+  &__hr {
+    height: 1px;
+    margin-bottom: 31px;
+    background: #5e607a;
+  }
+}
+
+.articles {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.article-item {
+  display: flex;
+  gap: 24px;
+  &__index {
+    @mixin heading-m;
+    color: var(--light-vermillion);
+    margin-bottom: 12px;
+    display: block;
+  }
+  &__title {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 800;
+    color: var(--dark-space-blue);
+    margin-bottom: 9px;
+  }
+  &__body {
+    @mixin body;
+    color: var(--gunmetal);
+  }
+}
+
+.error-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 1440px) {
+  .app {
+    max-width: 1100px;
+    margin: 0 auto;
+    &__main {
+      margin-top: 45px;
+    }
+  }
+  .backdrop,
+  .burger {
+    display: none;
+  }
+  .nav {
+    position: initial;
+    height: auto;
+    padding: 0;
+    transition: none;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    &__item {
+      @mixin body;
+    }
+  }
+
+  .logo {
+    width: 64px;
+    height: 40px;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 30px;
+    grid-template-rows: auto auto;
+    row-gap: 71px;
+    grid-template-areas: "hero hero new" "articles articles articles";
+    &__hero {
+      grid-area: hero;
+    }
+    &__new {
+      grid-area: new;
+    }
+    &__articles {
+      grid-area: articles;
+    }
+  }
+  .articles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .article-item {
+    &__img {
+      height: 100%;
+    }
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "img img" "title paragraph";
+    /* align-items: flex-end; */
+    &__img {
+      grid-area: img;
+      grid-column: span 2;
+    }
+    &__title {
+      @mixin heading-xl;
+      grid-area: title;
+      margin-top: 0;
+    }
+    &__paragraph-group {
+      grid-area: paragraph;
+    }
+    &__paragraph {
+      margin-top: 0;
+    }
+    &__read-more {
+      margin-top: 29px;
+    }
+  }
+}
