@@ -13,21 +13,21 @@ export default function Burger({ isMenuOpen, setIsMenuOpen }: burgerProps) {
       onClick={clickHandler}
       aria-label={isMenuOpen ? "Close menu" : "Open menu"}
     >
-      <div
+      <span
         className={`burger__line ${
           isMenuOpen === true ? "burger__line_first_open" : ""
         }`}
-      ></div>
-      <div
+      ></span>
+      <span
         className={`burger__line ${
           isMenuOpen === true ? "burger__line_second_closed" : ""
         }`}
-      ></div>
-      <div
+      ></span>
+      <span
         className={`burger__line ${
           isMenuOpen === true ? "burger__line_none" : ""
         }`}
-      ></div>
+      ></span>
     </button>
   );
 }
