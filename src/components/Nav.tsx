@@ -19,7 +19,10 @@ export default function Nav({ isMenuOpen }: props) {
   }, [isMenuOpen]);
 
   return (
-    <nav className={`header__nav nav ${isMenuOpen === true ? "nav_open" : ""}`}>
+    <nav
+      className={`header__nav nav ${isMenuOpen === true ? "nav_open" : ""}`}
+      aria-hidden={!isMenuOpen}
+    >
       <ul className="nav__list nav-list">
         <li>
           <Link

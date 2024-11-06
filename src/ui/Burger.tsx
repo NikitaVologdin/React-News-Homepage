@@ -12,7 +12,6 @@ export default function Burger({ isMenuOpen, setIsMenuOpen }: burgerProps) {
       className="header__burger burger"
       onClick={clickHandler}
       aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-      aria-hidden={!isMenuOpen}
     >
       <div
         className={`burger__line ${
