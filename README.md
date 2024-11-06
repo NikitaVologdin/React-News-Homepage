@@ -29,9 +29,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/NikitaVologdin/React-News-Homepage](https://github.com/NikitaVologdin/React-News-Homepage)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-
-## My process
+- Live Site URL: [https://react-news-homepage-eight.vercel.app/](https://react-news-homepage-eight.vercel.app/)
 
 ### Built with
 
