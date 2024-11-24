@@ -4,17 +4,17 @@ import Main from "./components/sections/Main";
 export default function App() {
   const articles = [
     {
-      img: "/images/image-retro-pcs.jpg",
+      img: "/images/image-retro-pcs.webp",
       title: "Reviving Retro PCs",
       text: "What happens when old PCs are given modern upgrades?",
     },
     {
-      img: "/images/image-top-laptops.jpg",
+      img: "/images/image-top-laptops.webp",
       title: "Top 10 Laptops of 2022",
       text: "Our best picks for various needs and budgets.",
     },
     {
-      img: "/images/image-gaming-growth.jpg",
+      img: "/images/image-gaming-growth.webp",
       title: "The Growth of Gaming",
       text: "How the pandemic has sparked fresh opportunities.",
     },
@@ -34,11 +34,13 @@ export default function App() {
     },
   ];
   const heroArticle = {
-    img: "/images/image-web-3-mobile.jpg",
+    img: "/images/image-web-3-mobile.webp",
     title: "The Bright Future of Web 3.0?",
     text: "We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?",
     srcSet:
-      "/images/image-web-3-mobile.jpg 300w, /images/image-web-3-desktop.jpg 1100w",
+      "/images/image-web-3-mobile.webp 300w, images/image-web-3-tablet.webp 730w, /images/image-web-3-desktop.webp 1100w",
+    sizes:
+      "(max-width: 500px) 300px, (min-width:500px) 730px, (min-width:900px) 1100px",
   };
   return (
     <>

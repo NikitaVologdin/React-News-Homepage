@@ -14,7 +14,7 @@ export default function Hero({ heroArticle }: HeroArticleProps) {
         height="300"
         alt=""
         srcSet={heroArticle.srcSet}
-        sizes="(min-width: 44em) 100vw"
+        sizes={heroArticle.sizes}
       />
       <h1 className="hero__title">{heroArticle.title}</h1>
       <div className="hero__paragraph-group">

@@ -11,4 +11,5 @@ export interface NewArticleT {
 export interface HeroArticleT extends NewArticleT {
   img: string;
   srcSet: string;
+  sizes: string;
 }

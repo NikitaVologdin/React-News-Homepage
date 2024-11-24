@@ -278,7 +278,16 @@ body {
   align-items: center;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 678px) {
+  .hero {
+    & img {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (min-width: 1100px) {
   .app {
     max-width: 1100px;
     margin: 0 auto;
